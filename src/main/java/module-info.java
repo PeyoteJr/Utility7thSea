@@ -10,10 +10,10 @@ module com.example.utility7thsea {
     requires org.kordamp.bootstrapfx.core;
     requires com.almasb.fxgl.all;
 
-    opens com.example.utility7thsea to javafx.fxml;
-    exports com.example.utility7thsea;
-    exports com.example.utility7thsea.controller;
-    opens com.example.utility7thsea.controller to javafx.fxml;
-    exports com.example.utility7thsea.application;
-    opens com.example.utility7thsea.application to javafx.fxml;
+    opens utility7thsea to javafx.fxml;
+    exports utility7thsea;
+    exports utility7thsea.controller;
+    opens utility7thsea.controller to javafx.fxml;
+    exports utility7thsea.application;
+    opens utility7thsea.application to javafx.fxml;
 }

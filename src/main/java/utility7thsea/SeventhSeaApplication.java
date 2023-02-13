@@ -1,4 +1,4 @@
-package com.example.utility7thsea;
+package utility7thsea;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
