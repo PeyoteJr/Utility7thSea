@@ -6,6 +6,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.control.Button;
 import javafx.stage.Stage;
+import javafx.stage.Window;
 
 import java.io.IOException;
 import java.net.URL;
@@ -21,20 +22,21 @@ public class MainController implements Initializable {
     @FXML
     Button exitButton;
 
-    private Stage window;
+    private Window window;
 
     @FXML
     protected void onStartClick() throws IOException {
-        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("mainSession.fxml")));
+        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/utility7thsea/mainSession.fxml")));
+        window = startButton.getScene().getWindow();
         window.getScene().setRoot(root);
-        window.show();
     }
 
     @FXML
     protected void onCharacterClick() throws IOException {
-        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getClassLoader().getResource("mainCharacters.fxml")));
+        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getClassLoader().getResource("/utility7thsea/mainCharacters.fxml")));
+        window = startButton.getScene().getWindow();
         window.getScene().setRoot(root);
-        window.show();
+
     }
 
     @FXML

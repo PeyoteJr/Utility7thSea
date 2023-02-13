@@ -14,6 +14,4 @@ module com.example.utility7thsea {
     exports utility7thsea;
     exports utility7thsea.controller;
     opens utility7thsea.controller to javafx.fxml;
-    exports utility7thsea.application;
-    opens utility7thsea.application to javafx.fxml;
 }
