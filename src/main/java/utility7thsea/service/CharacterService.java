@@ -3,7 +3,7 @@ package utility7thsea.service;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import utility7thsea.model.Character;
-import utility7thsea.singletons.Characters;
+import utility7thsea.singletons.ListsSingleton;
 
 import java.io.*;
 import java.net.URI;
@@ -19,7 +19,7 @@ import java.util.stream.Stream;
 public class CharacterService {
 
     public static int getAllCharacters() throws URISyntaxException {
-        Characters characters = Characters.getInstance();
+        ListsSingleton characters = ListsSingleton.getInstance();
         int status = 200;
         List<Character> characterList;
         URI uri = CharacterService.class.getResource("/data/charactersFile.csv").toURI();

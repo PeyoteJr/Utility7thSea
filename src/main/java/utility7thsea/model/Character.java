@@ -3,7 +3,7 @@ package utility7thsea.model;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.control.Button;
-import utility7thsea.singletons.Characters;
+import utility7thsea.singletons.ListsSingleton;
 
 import java.io.File;
 import java.io.FileOutputStream;
@@ -30,9 +30,9 @@ public class Character {
 
             @Override
             public void handle(ActionEvent actionEvent) {
-                for(Character c:Characters.getInstance().getCharacters()) {
+                for(Character c:ListsSingleton.getInstance().getCharacters()) {
                     if (c.getId() == getId()) {
-                        Characters.getInstance().getCharacters().remove(c);
+                        ListsSingleton.getInstance().getCharacters().remove(c);
                         break;
                     }
                 }
@@ -41,7 +41,7 @@ public class Character {
                     file.delete();
                     file.createNewFile();
                     try (FileOutputStream fos = new FileOutputStream(file)) {
-                        for (Character c : Characters.getInstance().getCharacters()) {
+                        for (Character c : ListsSingleton.getInstance().getCharacters()) {
                             fos.write(c.toCsv().getBytes(StandardCharsets.UTF_8));
                         }
                     }

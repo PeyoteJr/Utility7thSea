@@ -11,7 +11,7 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Window;
 import utility7thsea.service.CharacterService;
-import utility7thsea.singletons.Characters;
+import utility7thsea.singletons.ListsSingleton;
 
 import java.io.IOException;
 import java.net.URISyntaxException;
@@ -59,7 +59,7 @@ public class CharacterController implements Initializable {
         duelistColumn.setCellValueFactory(new PropertyValueFactory<Character,String>("duelist"));
         removeColumn.setCellValueFactory(new PropertyValueFactory<Character,Button>("removeButton"));
 
-        characterTable.setItems(Characters.getInstance().getCharacters());
+        characterTable.setItems(ListsSingleton.getInstance().getCharacters());
     }
     @FXML
     protected void onBackButtonClick() throws IOException {
