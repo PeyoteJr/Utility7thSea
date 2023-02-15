@@ -37,6 +37,11 @@ public class CharacterService {
         return status;
     }
 
+    public static boolean createCharacter(){
+
+        return true;
+    }
+
     protected static Character stringToCharacter(String inputString) {
         String[] values = inputString.split(";");
         return new Character(Long.parseLong(values[0]), values[1], values[2], values[3], values[4]);

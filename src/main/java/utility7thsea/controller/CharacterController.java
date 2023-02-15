@@ -68,12 +68,16 @@ public class CharacterController implements Initializable {
         window.getScene().setRoot(root);
     }
     @FXML
-    protected void onCreateButtonClick(){
-
+    protected void onCreateButtonClick() throws IOException {
+        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/utility7thsea/addCharacter.fxml")));
+        window = backButton.getScene().getWindow();
+        window.getScene().setRoot(root);
     }
 
     @FXML
-    protected void onPresetButtonClick(){
-
+    protected void onPresetButtonClick() throws IOException{
+        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/utility7thsea/mainPreset.fxml")));
+        window = backButton.getScene().getWindow();
+        window.getScene().setRoot(root);
     }
 }

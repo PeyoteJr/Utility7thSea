@@ -7,9 +7,6 @@ import utility7thsea.singletons.Characters;
 
 import java.io.File;
 import java.io.FileOutputStream;
-import java.io.InputStream;
-import java.io.OutputStream;
-import java.net.URISyntaxException;
 import java.nio.charset.StandardCharsets;
 
 public class Character {

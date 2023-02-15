@@ -1,14 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
 <AnchorPane xmlns="http://javafx.com/javafx"
             xmlns:fx="http://javafx.com/fxml"
-            fx:controller="utility7thsea.AddCharacter"
-            prefHeight="400.0" prefWidth="600.0">
+            fx:controller="utility7thsea.controller.CharacterCreationController"
+            prefHeight="720.0" prefWidth="1280.0">
+
+    <children>
+    <HBox layoutX="196.0" layoutY="602.0" prefHeight="111.0" prefWidth="888.0" spacing="80.0">
+        <children>
+            <Button fx:id="backButton" mnemonicParsing="false" onAction="#onBackButtonClick" prefHeight="147.0" prefWidth="300.0" text="ANNULLA" />
+            <Button fx:id="resetButton" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#onResetButtonClick" prefHeight="147.0" prefWidth="300.0" text="RESET" />
+            <Button fx:id="createButton" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#onCreateButtonClick" prefHeight="147.0" prefWidth="300.0" text="CONFERMA" />
+        </children>
+    </HBox>
+
+    </children>
 
 </AnchorPane>
