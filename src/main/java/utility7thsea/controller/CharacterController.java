@@ -6,8 +6,12 @@ import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Window;
 import utility7thsea.service.CharacterService;
+import utility7thsea.singletons.Characters;
 
 import java.io.IOException;
 import java.net.URISyntaxException;
@@ -24,15 +28,23 @@ public class CharacterController implements Initializable {
     private Button createButton;
 
     @FXML
-    private Button removeButton;
-
-    @FXML
     private Button presetButton;
 
     @FXML
-    private ListView characterList;
+    private TableView characterTable;
+    @FXML
+    private TableColumn nameColumn;
+    @FXML
+    private TableColumn nationColumn;
+    @FXML
+    private TableColumn fastReflexesColumn;
+    @FXML
+    private TableColumn duelistColumn;
+    @FXML
+    private TableColumn removeColumn;
 
     private Window window;
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         try {
@@ -40,6 +52,14 @@ public class CharacterController implements Initializable {
         } catch (URISyntaxException e) {
             e.printStackTrace();
         }
+
+        nameColumn.setCellValueFactory(new PropertyValueFactory<Character,String>("name"));
+        nationColumn.setCellValueFactory(new PropertyValueFactory<Character,String>("nation"));
+        fastReflexesColumn.setCellValueFactory(new PropertyValueFactory<Character,String>("fast_reflexes"));
+        duelistColumn.setCellValueFactory(new PropertyValueFactory<Character,String>("duelist"));
+        removeColumn.setCellValueFactory(new PropertyValueFactory<Character,Button>("removeButton"));
+
+        characterTable.setItems(Characters.getInstance().getCharacters());
     }
     @FXML
     protected void onBackButtonClick() throws IOException {
@@ -51,10 +71,7 @@ public class CharacterController implements Initializable {
     protected void onCreateButtonClick(){
 
     }
-    @FXML
-    protected void onRemoveButtonClick(){
 
-    }
     @FXML
     protected void onPresetButtonClick(){
 

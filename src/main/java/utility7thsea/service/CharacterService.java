@@ -1,5 +1,7 @@
 package utility7thsea.service;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import utility7thsea.model.Character;
 import utility7thsea.singletons.Characters;
 
@@ -27,7 +29,7 @@ public class CharacterService {
             characterList = stream
                     .map(CharacterService::stringToCharacter)
                     .collect(Collectors.toList());
-            characters.setCharacters((ArrayList<Character>) characterList);
+            characters.setCharacters(FXCollections.observableArrayList(characterList));
         } catch (Exception e) {
             e.printStackTrace();
             status = 500;
@@ -37,7 +39,7 @@ public class CharacterService {
 
     protected static Character stringToCharacter(String inputString) {
         String[] values = inputString.split(";");
-        return new Character(Long.parseLong(values[0]), values[1], values[2], values[3].split(","), Boolean.parseBoolean(values[4]));
+        return new Character(Long.parseLong(values[0]), values[1], values[2], values[3], values[4]);
     }
 
 }

@@ -1,11 +1,12 @@
 package utility7thsea.singletons;
 
+import javafx.collections.ObservableList;
 import utility7thsea.model.Character;
 
 import java.util.ArrayList;
 
 public class Characters {
-    private ArrayList<Character> characters;
+    private  ObservableList<Character> characters;
 
     private static Characters instance = null;
     public Characters() {
@@ -18,11 +19,11 @@ public class Characters {
         return instance;
     }
 
-    public ArrayList<Character> getCharacters() {
+    public ObservableList<Character> getCharacters() {
         return characters;
     }
 
-    public void setCharacters(ArrayList<Character> characters) {
+    public void setCharacters( ObservableList<Character> characters) {
         this.characters = characters;
     }
 }
