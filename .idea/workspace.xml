@@ -4,14 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="61a4192b-f630-4a84-809b-bbcb4004bd83" name="Changes" comment="First release - default project">
+    <list default="true" id="61a4192b-f630-4a84-809b-bbcb4004bd83" name="Changes" comment="Caricamento personaggi">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/utility7thsea/controller/CharacterController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/utility7thsea/model/Character.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/utility7thsea/service/CharacterService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/utility7thsea/singletons/Characters.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/utility7thsea/data/charactersFile.csv" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/utility7thsea/application/CharacterMain.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/utility7thsea/application/MainSession.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/utility7thsea/controller/MainController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/utility7thsea/controller/MainController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/utility7thsea/mainCharacters.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/utility7thsea/mainCharacters.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/utility7thsea/mainSession.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/utility7thsea/mainSession.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
