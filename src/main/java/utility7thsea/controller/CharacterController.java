@@ -10,6 +10,7 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Window;
+import utility7thsea.model.Character;
 import utility7thsea.service.CharacterService;
 import utility7thsea.singletons.ListsSingleton;
 
@@ -45,10 +46,13 @@ public class CharacterController implements Initializable {
 
     private Window window;
 
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         try {
-            System.out.println(CharacterService.getAllCharacters());
+            if(ListsSingleton.getInstance().getCharacters()==null) {
+                System.out.println(CharacterService.getAllCharacters());
+            }
         } catch (URISyntaxException e) {
             e.printStackTrace();
         }

@@ -12,6 +12,8 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
@@ -37,14 +39,39 @@ public class CharacterService {
         return status;
     }
 
-    public static boolean createCharacter(){
-
-        return true;
+    public static boolean createCharacter(String name, String nation, String fast_reflexes, String duelist){
+        ListsSingleton.getInstance().getCharacters().sort(Comparator.comparingLong(Character::getId));
+        Character toAdd = new Character(getFirstFreeId(),name,nation,fast_reflexes,duelist);
+        ListsSingleton.getInstance().getCharacters().add(toAdd);
+        try {
+            URI uri = CharacterService.class.getResource("/data/charactersFile.csv").toURI();
+            String mainPath = Paths.get(uri).toString();
+            FileOutputStream fos = new FileOutputStream(mainPath, true);
+            fos.write(toAdd.toCsv().getBytes());
+            fos.close();
+            return true;
+        }catch(Exception e){
+            return false;
+        }
     }
 
-    protected static Character stringToCharacter(String inputString) {
+    private static Character stringToCharacter(String inputString) {
         String[] values = inputString.split(";");
+        if(values.length<5){
+            values =  Arrays.copyOf(values,5);
+        }
         return new Character(Long.parseLong(values[0]), values[1], values[2], values[3], values[4]);
+    }
+
+    private static long getFirstFreeId(){
+        long index = 0;
+        for(Character c:ListsSingleton.getInstance().getCharacters()){
+            if(index!=c.getId()){
+                return index;
+            }
+            index ++;
+        }
+        return index;
     }
 
 }
