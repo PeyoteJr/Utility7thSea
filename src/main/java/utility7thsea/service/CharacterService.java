@@ -1,17 +1,15 @@
 package utility7thsea.service;
 
 import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 import utility7thsea.model.Character;
 import utility7thsea.singletons.ListsSingleton;
 
-import java.io.*;
+import java.io.FileOutputStream;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Comparator;
 import java.util.List;

@@ -6,9 +6,11 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.control.Button;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
 import javafx.stage.Window;
 import utility7thsea.service.CharacterService;
+import utility7thsea.singletons.ListsSingleton;
 
 import java.io.IOException;
 import java.net.URL;
@@ -27,7 +29,7 @@ public class CharacterCreationController implements Initializable {
     private TextField name;
 
     @FXML
-    private TextField nation;
+    private ComboBox nation;
 
     @FXML
     private TextField fast_reflexes;
@@ -45,14 +47,14 @@ public class CharacterCreationController implements Initializable {
     }
     @FXML
     protected void onCreateButtonClick() throws IOException {
-        CharacterService.createCharacter(name.getText(),nation.getText(),fast_reflexes.getText(),duelist.getText());
+        CharacterService.createCharacter(name.getText(),nation.getValue().toString(),fast_reflexes.getText(),duelist.getText());
         back();
     }
 
     @FXML
     protected void onResetButtonClick() throws IOException{
         name.setText("");
-        nation.setText("");
+        nation.setValue(null);
         fast_reflexes.setText("");
         duelist.setText("");
 
@@ -60,7 +62,7 @@ public class CharacterCreationController implements Initializable {
 
     private void back() throws IOException {
         name.setText("");
-        nation.setText("");
+        nation.setValue(null);
         fast_reflexes.setText("");
         duelist.setText("");
         Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/utility7thsea/mainCharacters.fxml")));
@@ -72,8 +74,11 @@ public class CharacterCreationController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         createButton.disableProperty().bind(
+                //TODO non funziona correttamente
                 Bindings.isEmpty(name.textProperty())
-                        .and(Bindings.isEmpty(nation.textProperty()))
+                        .and(Bindings.isNull(nation.valueProperty()))
         );
+
+        nation.setItems(ListsSingleton.getInstance().getNations());
     }
 }
