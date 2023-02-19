@@ -16,7 +16,6 @@ public class ListsSingleton {
     private ArrayList<String> duel_styles;
     private ObservableList<String> nations;
 
-
     private static ListsSingleton instance = null;
     public ListsSingleton() {
         abilities = new ArrayList<>(Arrays.asList("ALLETTARE","ARTE DELLA GUERRA","ATLETICA","CAVALCARE","CONVINCERE","EMPATIA","ESIBIRSI","FURTO","INTIMIDIRE","ISTRUZIONE","MIRA","MISCHIA","NASCONDERSI","NAVIGAZIONE","NOTARE","RISSA"));

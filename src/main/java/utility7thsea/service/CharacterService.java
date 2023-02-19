@@ -6,6 +6,7 @@ import utility7thsea.singletons.ListsSingleton;
 
 import java.io.File;
 import java.io.FileOutputStream;
+import java.io.IOException;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.nio.charset.StandardCharsets;
@@ -58,16 +59,20 @@ public class CharacterService {
 
     public static void removeCharacter(long id){
 
-        ListsSingleton.getInstance().getCharacters().remove(id);
+        ListsSingleton.getInstance().getCharacters().remove(Math.toIntExact(id));
 
         try {
             File file = new File(CharacterService.class.getResource("/data/charactersFile.csv").toURI());
             file.delete();
             file.createNewFile();
             try (FileOutputStream fos = new FileOutputStream(file)) {
-                for (Character c : ListsSingleton.getInstance().getCharacters()) {
-                    fos.write(c.toCsv().getBytes(StandardCharsets.UTF_8));
-                }
+                    ListsSingleton.getInstance().getCharacters().forEach(character-> {
+                        try {
+                            fos.write(character.toCsv().getBytes(StandardCharsets.UTF_8));
+                        } catch (IOException e) {
+                            throw new RuntimeException(e);
+                        }
+                    });
             }
         } catch (Exception e) {
             e.printStackTrace();

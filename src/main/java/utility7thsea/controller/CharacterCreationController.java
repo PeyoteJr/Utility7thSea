@@ -77,10 +77,11 @@ public class CharacterCreationController implements Initializable {
         fast_reflexes.getItems().addAll(ListsSingleton.getInstance().getAbilities());
         duelist.getItems().addAll(ListsSingleton.getInstance().getDuel_styles());
         if(DataTransitSingleton.getInstance().getEditId() != -1){
-            Character c = ListsSingleton.getInstance().getCharacters().get(Math.toIntExact((Long) window.getUserData()));
+            Character c = ListsSingleton.getInstance().getCharacters().get(Math.toIntExact((DataTransitSingleton.getInstance().getEditId())));
+            name.setText(c.getName());
             nation.setValue(c.getNation());
-            fast_reflexes.getCheckModel().getCheckedItems().addAll(c.getFast_reflexes());
-            duelist.getCheckModel().getCheckedItems().addAll(c.getDuelist());
+            c.getFast_reflexes().forEach(value->fast_reflexes.getCheckModel().check(value));
+            c.getDuelist().forEach(value->duelist.getCheckModel().check(value));
         }
         createButton.disableProperty().bind(
                 Bindings.isEmpty(name.textProperty())

@@ -3,14 +3,13 @@ package utility7thsea.singletons;
 public class DataTransitSingleton {
 
     private static DataTransitSingleton instance = null;
-
     private long editId = -1;
     public DataTransitSingleton() {
     }
 
     public static DataTransitSingleton getInstance(){
         if(instance == null){
-            return new DataTransitSingleton();
+            instance = new DataTransitSingleton();
         }
         return instance;
     }
