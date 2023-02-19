@@ -22,6 +22,7 @@ public class ListsSingleton {
         abilities = new ArrayList<>(Arrays.asList("ALLETTARE","ARTE DELLA GUERRA","ATLETICA","CAVALCARE","CONVINCERE","EMPATIA","ESIBIRSI","FURTO","INTIMIDIRE","ISTRUZIONE","MIRA","MISCHIA","NASCONDERSI","NAVIGAZIONE","NOTARE","RISSA"));
         traits = new ArrayList<>(Arrays.asList("VIGORE","GRAZIA","RISOLUTEZZA","ACUME","PANACHE"));
         nations = FXCollections.observableArrayList(new ArrayList<>(Arrays.asList("Avalon","Inismore","Marche delle Highlands","Vestenmennavenjar","Eisen","Castille","Montaigne","Vodacce","Confederazione Sarmatiana","Ussura")));
+        duel_styles = new ArrayList<>(Arrays.asList("Aldana","Ambrogia","Boucher","Cleasa di Skatha","De Vore","Donovan","Drexel","Eisenfaust","Hallbjorn","Kulachniy Boi","Kummerholt","Lakedaimon Agoge","Leegstra","Mantovani","Mireli","Sabat","Siqueira","Le Strade","Szybowanie","Torres","Valroux"));
     }
 
     public static ListsSingleton getInstance(){

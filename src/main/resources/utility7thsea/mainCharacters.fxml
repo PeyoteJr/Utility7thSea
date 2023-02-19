@@ -23,7 +23,7 @@
             <TableColumn fx:id="nationColumn" prefWidth="75.0" text="Nazione" />
             <TableColumn fx:id="fastReflexesColumn" prefWidth="75.0" text="Riflessi rapidi" />
             <TableColumn fx:id="duelistColumn" prefWidth="75.0" text="Duellante" />
-            <TableColumn fx:id="removeColumn" prefWidth="75.0" />
+            <TableColumn fx:id="operationColumn" prefWidth="75.0" />
          </columns>
          <columnResizePolicy>
             <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />

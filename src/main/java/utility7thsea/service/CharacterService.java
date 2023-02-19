@@ -4,9 +4,11 @@ import javafx.collections.FXCollections;
 import utility7thsea.model.Character;
 import utility7thsea.singletons.ListsSingleton;
 
+import java.io.File;
 import java.io.FileOutputStream;
 import java.net.URI;
 import java.net.URISyntaxException;
+import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -37,7 +39,7 @@ public class CharacterService {
         return status;
     }
 
-    public static boolean createCharacter(String name, String nation, String fast_reflexes, String duelist){
+    public static boolean createCharacter(String name, String nation, List<String> fast_reflexes, List<String> duelist){
         ListsSingleton.getInstance().getCharacters().sort(Comparator.comparingLong(Character::getId));
         Character toAdd = new Character(getFirstFreeId(),name,nation,fast_reflexes,duelist);
         ListsSingleton.getInstance().getCharacters().add(toAdd);
@@ -53,12 +55,36 @@ public class CharacterService {
         }
     }
 
+    public static void removeCharacter(long id){
+
+        ListsSingleton.getInstance().getCharacters().remove(id);
+
+        try {
+            File file = new File(CharacterService.class.getResource("/data/charactersFile.csv").toURI());
+            file.delete();
+            file.createNewFile();
+            try (FileOutputStream fos = new FileOutputStream(file)) {
+                for (Character c : ListsSingleton.getInstance().getCharacters()) {
+                    fos.write(c.toCsv().getBytes(StandardCharsets.UTF_8));
+                }
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
     private static Character stringToCharacter(String inputString) {
         String[] values = inputString.split(";");
         if(values.length<5){
-            values =  Arrays.copyOf(values,5);
+            int i = values.length;
+            values = Arrays.copyOf(values,5);
+            for(; i < 5; i++){
+                values[i] = "";
+            }
+
         }
-        return new Character(Long.parseLong(values[0]), values[1], values[2], values[3], values[4]);
+
+        return new Character(Long.parseLong(values[0]), values[1], values[2], List.of(values[3].split(",")), List.of(values[4].split(",")));
     }
 
     private static long getFirstFreeId(){

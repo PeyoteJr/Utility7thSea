@@ -2,7 +2,6 @@
 
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -10,7 +9,9 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
+<?import org.controlsfx.control.CheckComboBox?>
 
+<?import javafx.scene.control.ComboBox?>
 <AnchorPane prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="utility7thsea.controller.CharacterCreationController">
 
     <Text layoutX="415.0" layoutY="66.0" strokeType="OUTSIDE" strokeWidth="0.0" text="CREA PERSONAGGIO">
@@ -31,7 +32,7 @@
                     <Font size="24.0" />
                 </font>
             </Label>
-            <TextField fx:id="name">
+            <TextField fx:id="name" prefWidth="228.0">
                 <font>
                     <Font size="18.0" />
                 </font>
@@ -46,10 +47,7 @@
                     <Font size="24.0" />
                 </font>
             </Label>
-            <ComboBox fx:id="nation" prefHeight="33.0" prefWidth="222.0">
-               
-            </ComboBox>
-
+         <ComboBox fx:id="nation" prefHeight="39.0" prefWidth="228.0" />
             <padding>
                 <Insets bottom="20.0" left="20.0" right="20.0" top="30.0" />
             </padding>
@@ -60,11 +58,7 @@
                  <Font size="24.0" />
               </font>
            </Label>
-           <TextField fx:id="fast_reflexes">
-              <font>
-                 <Font size="18.0" />
-              </font>
-           </TextField>
+         <CheckComboBox fx:id="fast_reflexes" prefHeight="39.0" prefWidth="228.0" />
            <padding>
                 <Insets bottom="20.0" left="20.0" right="20.0" top="30.0" />
             </padding>
@@ -75,11 +69,7 @@
                  <Font size="24.0" />
               </font>
            </Label>
-           <TextField fx:id="duelist">
-              <font>
-                 <Font size="18.0" />
-              </font>
-           </TextField>
+         <CheckComboBox fx:id="duelist" prefHeight="39.0" prefWidth="228.0" />
            <padding>
                 <Insets bottom="20.0" left="20.0" right="20.0" top="30.0" />
             </padding>

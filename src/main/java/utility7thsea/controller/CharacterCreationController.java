@@ -9,7 +9,10 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
 import javafx.stage.Window;
+import org.controlsfx.control.CheckComboBox;
+import utility7thsea.model.Character;
 import utility7thsea.service.CharacterService;
+import utility7thsea.singletons.DataTransitSingleton;
 import utility7thsea.singletons.ListsSingleton;
 
 import java.io.IOException;
@@ -29,13 +32,13 @@ public class CharacterCreationController implements Initializable {
     private TextField name;
 
     @FXML
-    private ComboBox nation;
+    private ComboBox<String> nation;
 
     @FXML
-    private TextField fast_reflexes;
+    private CheckComboBox<String> fast_reflexes;
 
     @FXML
-    private TextField duelist;
+    private CheckComboBox<String> duelist;
 
     private Window window;
 
@@ -47,24 +50,20 @@ public class CharacterCreationController implements Initializable {
     }
     @FXML
     protected void onCreateButtonClick() throws IOException {
-        CharacterService.createCharacter(name.getText(),nation.getValue().toString(),fast_reflexes.getText(),duelist.getText());
+        CharacterService.createCharacter(name.getText(),nation.getValue(),fast_reflexes.getCheckModel().getCheckedItems(),duelist.getCheckModel().getCheckedItems());
         back();
     }
 
     @FXML
     protected void onResetButtonClick() throws IOException{
         name.setText("");
-        nation.setValue(null);
-        fast_reflexes.setText("");
-        duelist.setText("");
+        nation.setValue("");
+        fast_reflexes.getCheckModel().clearChecks();
+        duelist.getCheckModel().clearChecks();
 
     }
 
     private void back() throws IOException {
-        name.setText("");
-        nation.setValue(null);
-        fast_reflexes.setText("");
-        duelist.setText("");
         Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/utility7thsea/mainCharacters.fxml")));
         window = backButton.getScene().getWindow();
         window.getScene().setRoot(root);
@@ -73,12 +72,19 @@ public class CharacterCreationController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+
+        nation.getItems().addAll(ListsSingleton.getInstance().getNations());
+        fast_reflexes.getItems().addAll(ListsSingleton.getInstance().getAbilities());
+        duelist.getItems().addAll(ListsSingleton.getInstance().getDuel_styles());
+        if(DataTransitSingleton.getInstance().getEditId() != -1){
+            Character c = ListsSingleton.getInstance().getCharacters().get(Math.toIntExact((Long) window.getUserData()));
+            nation.setValue(c.getNation());
+            fast_reflexes.getCheckModel().getCheckedItems().addAll(c.getFast_reflexes());
+            duelist.getCheckModel().getCheckedItems().addAll(c.getDuelist());
+        }
         createButton.disableProperty().bind(
-                //TODO non funziona correttamente
                 Bindings.isEmpty(name.textProperty())
-                        .and(Bindings.isNull(nation.valueProperty()))
         );
 
-        nation.setItems(ListsSingleton.getInstance().getNations());
     }
 }
