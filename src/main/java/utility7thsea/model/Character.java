@@ -68,18 +68,18 @@ public class Character {
         String nationToAppend = nation.length() > 0?nation:"";
         StringBuilder csvLine = new StringBuilder(id + ";" + name + ";" + nationToAppend + ";");
         for(String value:fast_reflexes){
-            csvLine.append(fast_reflexes);
+            csvLine.append(value);
             if(!(fast_reflexes.lastIndexOf(value) == fast_reflexes.size()-1)){
                 csvLine.append(",");
             }
         }
+        csvLine.append(";");
         for(String value:duelist){
-            csvLine.append(duelist);
+            csvLine.append(value);
             if(!(duelist.lastIndexOf(value) == duelist.size()-1)){
                 csvLine.append(",");
             }
         }
-
         csvLine.append("\n");
         return csvLine.toString();
     }

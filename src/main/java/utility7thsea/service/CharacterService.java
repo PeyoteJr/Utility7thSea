@@ -15,6 +15,7 @@ import java.nio.file.Paths;
 import java.util.Arrays;
 import java.util.Comparator;
 import java.util.List;
+import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
@@ -78,13 +79,14 @@ public class CharacterService {
         if(values.length<5){
             int i = values.length;
             values = Arrays.copyOf(values,5);
-            for(; i < 5; i++){
+            for(i=i; i < 5; i++){
                 values[i] = "";
             }
 
         }
-
-        return new Character(Long.parseLong(values[0]), values[1], values[2], List.of(values[3].split(",")), List.of(values[4].split(",")));
+        return new Character(Long.parseLong(values[0]), values[1], values[2],
+                List.of(values[3].replaceAll(Pattern.quote("["),"").replaceAll("]","").split(","))
+                ,List.of(values[4].replaceAll(Pattern.quote("["),"").replaceAll("]","").split(",")));
     }
 
     private static long getFirstFreeId(){
