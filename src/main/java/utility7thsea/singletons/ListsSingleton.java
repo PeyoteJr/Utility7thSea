@@ -31,6 +31,25 @@ public class ListsSingleton {
         return instance;
     }
 
+    public boolean removeCharacterById(long id){
+        for (Character c:this.getCharacters()) {
+            if(c.getId() == id){
+                this.characters.remove(c);
+                return true;
+            }
+        }
+        return false;
+    }
+    public boolean removePresetById(long id){
+        for (Preset p:this.getPresets()) {
+            if(p.getId() == id){
+                this.characters.remove(p);
+                return true;
+            }
+        }
+        return false;
+    }
+
     public ObservableList<Character> getCharacters() {
         return characters;
     }

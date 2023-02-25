@@ -4,12 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="61a4192b-f630-4a84-809b-bbcb4004bd83" name="Changes" comment="Ristrutturazione con nuovo model e checkcombobox">
+    <list default="true" id="61a4192b-f630-4a84-809b-bbcb4004bd83" name="Changes" comment="Finita gestione personaggio">
+      <change afterPath="$PROJECT_DIR$/src/main/java/utility7thsea/controller/PresetController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/utility7thsea/service/PresetService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/utility7thsea/controller/CharacterController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/utility7thsea/controller/CharacterController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/utility7thsea/model/Character.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/utility7thsea/model/Character.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/utility7thsea/model/Preset.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/utility7thsea/model/Preset.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/utility7thsea/service/CharacterService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/utility7thsea/service/CharacterService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/utility7thsea/addCharacter.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/utility7thsea/addCharacter.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/utility7thsea/singletons/ListsSingleton.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/utility7thsea/singletons/ListsSingleton.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/utility7thsea/mainCharacters.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/utility7thsea/mainCharacters.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/utility7thsea/mainPreset.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/utility7thsea/mainPreset.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -149,7 +152,21 @@
       <option name="project" value="LOCAL" />
       <updated>1676820171514</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="Fix a bug disagiato">
+      <created>1676821777964</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1676821777964</updated>
+    </task>
+    <task id="LOCAL-00011" summary="Finita gestione personaggio">
+      <created>1676823470796</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1676823470796</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="UnknownFeatures">
@@ -163,7 +180,9 @@
     <MESSAGE value="Completata creazione" />
     <MESSAGE value="Inserita tendina nazioni e altre liste" />
     <MESSAGE value="Ristrutturazione con nuovo model e checkcombobox" />
-    <option name="LAST_COMMIT_MESSAGE" value="Ristrutturazione con nuovo model e checkcombobox" />
+    <MESSAGE value="Fix a bug disagiato" />
+    <MESSAGE value="Finita gestione personaggio" />
+    <option name="LAST_COMMIT_MESSAGE" value="Finita gestione personaggio" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -172,16 +191,6 @@
           <url>file://$PROJECT_DIR$/src/main/java/utility7thsea/controller/MainController.java</url>
           <line>27</line>
           <option name="timeStamp" value="2" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/utility7thsea/service/CharacterService.java</url>
-          <line>86</line>
-          <option name="timeStamp" value="8" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/utility7thsea/model/Character.java</url>
-          <line>67</line>
-          <option name="timeStamp" value="10" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

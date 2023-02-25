@@ -23,7 +23,6 @@ import java.util.stream.Stream;
 public class CharacterService {
 
     public static int getAllCharacters() throws URISyntaxException {
-        ListsSingleton characters = ListsSingleton.getInstance();
         int status = 200;
         List<Character> characterList;
         URI uri = CharacterService.class.getResource("/data/charactersFile.csv").toURI();
@@ -33,7 +32,7 @@ public class CharacterService {
             characterList = stream
                     .map(CharacterService::stringToCharacter)
                     .collect(Collectors.toList());
-            characters.setCharacters(FXCollections.observableArrayList(characterList));
+            ListsSingleton.getInstance().setCharacters(FXCollections.observableArrayList(characterList));
         } catch (Exception e) {
             e.printStackTrace();
             status = 500;
@@ -59,7 +58,7 @@ public class CharacterService {
 
     public static void removeCharacter(long id){
 
-        ListsSingleton.getInstance().getCharacters().remove(Math.toIntExact(id));
+        ListsSingleton.getInstance().removeCharacterById(id);
 
         try {
             File file = new File(CharacterService.class.getResource("/data/charactersFile.csv").toURI());
