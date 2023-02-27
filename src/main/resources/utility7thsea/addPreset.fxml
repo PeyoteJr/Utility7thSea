@@ -1,14 +1,56 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="utility7thsea.controller.PresetCreationController"
-            prefHeight="400.0" prefWidth="600.0">
 
+<AnchorPane prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/19"
+            xmlns:fx="http://javafx.com/fxml/1" fx:controller="utility7thsea.controller.PresetCreationController">
+   <Text layoutX="516.0" layoutY="53.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Gestione preset">
+      <font>
+         <Font size="36.0"/>
+      </font>
+   </Text>
+   <ListView fx:id="available" layoutX="71.0" layoutY="67.0" prefHeight="496.0" prefWidth="375.0"/>
+   <ListView fx:id="inPreset" layoutX="834.0" layoutY="67.0" prefHeight="496.0" prefWidth="375.0"/>
+   <VBox layoutX="600.0" layoutY="215.0" prefHeight="200.0" prefWidth="80.0" spacing="50.0">
+      <padding>
+         <Insets bottom="20.0" left="20.0" right="20.0" top="20.0"/>
+      </padding>
+      <Button fx:id="moveRightButton" mnemonicParsing="false" onAction="#onMoveRightButtonClick" prefHeight="58.0"
+              prefWidth="40.0" text="&gt;"/>
+      <Button fx:id="moveLeftButton" mnemonicParsing="false" onAction="#onMoveLeftButtonClick" prefHeight="58.0"
+              prefWidth="40.0" text="&lt;"/>
+   </VBox>
+   <HBox layoutX="205.0" layoutY="587.0" prefHeight="111.0" prefWidth="888.0" spacing="80.0">
+      <Button fx:id="backButton" mnemonicParsing="false" onAction="#onBackButtonClick" prefHeight="147.0"
+              prefWidth="300.0" text="ANNULLA"/>
+      <Button layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#onResetButtonClick" prefHeight="147.0"
+              prefWidth="300.0" text="RESET"/>
+      <Button fx:id="createButton" layoutX="10.0" layoutY="10.0" mnemonicParsing="false"
+              onAction="#onCreateButtonClick" prefHeight="147.0" prefWidth="300.0" text="CONFERMA"/>
+   </HBox>
+   <HBox layoutX="453.0" layoutY="88.0" prefHeight="100.0" prefWidth="375.0" spacing="20.0">
+      <padding>
+         <Insets bottom="10.0" left="10.0" right="10.0" top="10.0"/>
+      </padding>
+      <Label prefHeight="27.0" prefWidth="65.0" text="Nome">
+         <font>
+            <Font size="18.0"/>
+         </font>
+      </Label>
+      <TextField fx:id="name" prefWidth="228.0">
+         <font>
+            <Font size="14.0"/>
+         </font>
+      </TextField>
+   </HBox>
 </AnchorPane>

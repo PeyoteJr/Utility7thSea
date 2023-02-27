@@ -1,14 +1,21 @@
 package utility7thsea.model;
 
+import utility7thsea.singletons.ListsSingleton;
+
 import java.util.List;
 
 public class Preset {
     private long id;
     private String name;
     private List<Long> characterIds;
+    private List<String> characterNames;
 
     public Preset(long id, String name, List<Long> characterIds) {
-
+        this.id = id;
+        this.name = name;
+        this.characterIds = characterIds;
+        this.characterNames = ListsSingleton.getInstance().getCharacters().stream()
+                .filter(character -> characterIds.contains(character.getId())).map(Character::getName).toList();
     }
 
     public long getId() {
@@ -31,11 +38,18 @@ public class Preset {
         return characterIds;
     }
 
-    public void setCharacterIds(List<Long> characterIds) {
-        this.characterIds = characterIds;
+    public List<String> getCharacterNames() {
+        return characterNames;
     }
 
     public String toCsv() {
-        return null;
+        StringBuilder csvLine = new StringBuilder(id + ";" + name + ";");
+        for (Long id:characterIds) {
+            csvLine.append(id);
+            if(!(characterIds.lastIndexOf(id) == characterIds.size()-1)){
+                csvLine.append(",");
+            }
+        }
+        return csvLine.toString();
     }
 }

@@ -2,6 +2,7 @@ package utility7thsea.service;
 
 import javafx.collections.FXCollections;
 import utility7thsea.model.Character;
+import utility7thsea.singletons.DataTransitSingleton;
 import utility7thsea.singletons.ListsSingleton;
 
 import java.io.File;
@@ -40,9 +41,9 @@ public class CharacterService {
         return status;
     }
 
-    public static boolean createCharacter(String name, String nation, List<String> fast_reflexes, List<String> duelist){
+    public static void createCharacter(String name, String nation, List<String> fast_reflexes, List<String> duelist) {
         ListsSingleton.getInstance().getCharacters().sort(Comparator.comparingLong(Character::getId));
-        Character toAdd = new Character(getFirstFreeId(),name,nation,fast_reflexes,duelist);
+        Character toAdd = new Character(getFirstFreeId(), name, nation, fast_reflexes, duelist);
         ListsSingleton.getInstance().getCharacters().add(toAdd);
         try {
             URI uri = CharacterService.class.getResource("/data/charactersFile.csv").toURI();
@@ -50,13 +51,11 @@ public class CharacterService {
             FileOutputStream fos = new FileOutputStream(mainPath, true);
             fos.write(toAdd.toCsv().getBytes());
             fos.close();
-            return true;
-        }catch(Exception e){
-            return false;
+        } catch (Exception ignored) {
         }
     }
 
-    public static void removeCharacter(long id){
+    public static void removeCharacter(long id) {
 
         ListsSingleton.getInstance().removeCharacterById(id);
 
@@ -65,13 +64,13 @@ public class CharacterService {
             file.delete();
             file.createNewFile();
             try (FileOutputStream fos = new FileOutputStream(file)) {
-                    ListsSingleton.getInstance().getCharacters().forEach(character-> {
-                        try {
-                            fos.write(character.toCsv().getBytes(StandardCharsets.UTF_8));
-                        } catch (IOException e) {
-                            throw new RuntimeException(e);
-                        }
-                    });
+                ListsSingleton.getInstance().getCharacters().forEach(character -> {
+                    try {
+                        fos.write(character.toCsv().getBytes(StandardCharsets.UTF_8));
+                    } catch (IOException e) {
+                        throw new RuntimeException(e);
+                    }
+                });
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -80,26 +79,28 @@ public class CharacterService {
 
     private static Character stringToCharacter(String inputString) {
         String[] values = inputString.split(";");
-        if(values.length<5){
+        if (values.length < 5) {
             int i = values.length;
-            values = Arrays.copyOf(values,5);
-            for(i=i; i < 5; i++){
+            values = Arrays.copyOf(values, 5);
+            for (; i < 5; i++) {
                 values[i] = "";
             }
 
         }
         return new Character(Long.parseLong(values[0]), values[1], values[2],
-                List.of(values[3].replaceAll(Pattern.quote("["),"").replaceAll("]","").split(","))
-                ,List.of(values[4].replaceAll(Pattern.quote("["),"").replaceAll("]","").split(",")));
+                List.of(values[3].replaceAll(Pattern.quote("["), "").replaceAll("]", "").split(","))
+                , List.of(values[4].replaceAll(Pattern.quote("["), "").replaceAll("]", "").split(",")));
     }
 
-    private static long getFirstFreeId(){
+    private static long getFirstFreeId() {
+        if (DataTransitSingleton.getInstance().getEditId() != -1)
+            return DataTransitSingleton.getInstance().getEditId();
         long index = 0;
-        for(Character c:ListsSingleton.getInstance().getCharacters()){
-            if(index!=c.getId()){
+        for (Character c : ListsSingleton.getInstance().getCharacters()) {
+            if (index != c.getId()) {
                 return index;
             }
-            index ++;
+            index++;
         }
         return index;
     }

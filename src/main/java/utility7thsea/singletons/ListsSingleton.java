@@ -31,23 +31,21 @@ public class ListsSingleton {
         return instance;
     }
 
-    public boolean removeCharacterById(long id){
+    public void removeCharacterById(long id){
         for (Character c:this.getCharacters()) {
             if(c.getId() == id){
                 this.characters.remove(c);
-                return true;
+                return;
             }
         }
-        return false;
     }
-    public boolean removePresetById(long id){
+    public void removePresetById(long id){
         for (Preset p:this.getPresets()) {
             if(p.getId() == id){
-                this.characters.remove(p);
-                return true;
+                this.presets.remove(p);
+                return;
             }
         }
-        return false;
     }
 
     public ObservableList<Character> getCharacters() {
@@ -70,31 +68,16 @@ public class ListsSingleton {
         return abilities;
     }
 
-    public void setAbilities(ArrayList<String> abilities) {
-        this.abilities = abilities;
-    }
-
     public ArrayList<String> getTraits() {
         return traits;
-    }
-
-    public void setTraits(ArrayList<String> traits) {
-        this.traits = traits;
     }
 
     public ArrayList<String> getDuel_styles() {
         return duel_styles;
     }
 
-    public void setDuel_styles(ArrayList<String> duel_styles) {
-        this.duel_styles = duel_styles;
-    }
-
     public ObservableList<String> getNations() {
         return nations;
     }
 
-    public void setNations(ObservableList<String> nations) {
-        this.nations = nations;
-    }
 }

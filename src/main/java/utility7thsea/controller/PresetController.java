@@ -12,7 +12,6 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.HBox;
 import javafx.stage.Window;
-import utility7thsea.model.Character;
 import utility7thsea.model.Preset;
 import utility7thsea.service.PresetService;
 import utility7thsea.singletons.DataTransitSingleton;
@@ -31,11 +30,6 @@ public class PresetController implements Initializable {
 
     @FXML
     private Button createButton;
-
-    @FXML
-    private Button presetButton;
-    @FXML
-    private Button editButton;
 
     @FXML
     private TableView<Preset> presetTable;
@@ -61,7 +55,7 @@ public class PresetController implements Initializable {
         }
 
         nameColumn.setCellValueFactory(new PropertyValueFactory<>("name"));
-        charactersColumn.setCellValueFactory(new PropertyValueFactory<>("nation"));
+        charactersColumn.setCellValueFactory(new PropertyValueFactory<>("characterNames"));
 
         operationColumn.setCellValueFactory(cellData -> new SimpleObjectProperty<>(cellData.getValue()));
 
@@ -70,16 +64,16 @@ public class PresetController implements Initializable {
             private final Button editButton = new Button("Modifica");
             private final Button removeButton = new Button("Cancella");
 
-            protected void updateItem(Preset Preset, boolean empty) {
-                super.updateItem(Preset, empty);
+            protected void updateItem(Preset preset, boolean empty) {
+                super.updateItem(preset, empty);
 
-                if (Preset == null) {
+                if (preset == null) {
                     setGraphic(null);
                 } else {
-                    removeButton.setOnAction(actionEvent -> PresetService.removePreset(Preset.getId()));
+                    removeButton.setOnAction(actionEvent -> PresetService.removePreset(preset.getId()));
 
                     editButton.setOnAction(actionEvent -> {
-                        DataTransitSingleton.getInstance().setEditId(Preset.getId());
+                        DataTransitSingleton.getInstance().setEditId(preset.getId());
                         try {
                             onCreateButtonClick();
                         } catch (IOException e) {

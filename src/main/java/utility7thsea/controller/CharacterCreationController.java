@@ -40,9 +40,6 @@ public class CharacterCreationController implements Initializable {
     @FXML
     private CheckComboBox<String> duelist;
 
-    private Window window;
-
-
 
     @FXML
     protected void onBackButtonClick() throws IOException {
@@ -55,7 +52,7 @@ public class CharacterCreationController implements Initializable {
     }
 
     @FXML
-    protected void onResetButtonClick() throws IOException{
+    protected void onResetButtonClick() {
         name.setText("");
         nation.setValue("");
         fast_reflexes.getCheckModel().clearChecks();
@@ -64,8 +61,9 @@ public class CharacterCreationController implements Initializable {
     }
 
     private void back() throws IOException {
+        DataTransitSingleton.getInstance().setEditId(-1);
         Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/utility7thsea/mainCharacters.fxml")));
-        window = backButton.getScene().getWindow();
+        Window window = backButton.getScene().getWindow();
         window.getScene().setRoot(root);
     }
 

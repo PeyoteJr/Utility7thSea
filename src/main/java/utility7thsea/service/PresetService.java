@@ -2,6 +2,7 @@ package utility7thsea.service;
 
 import javafx.collections.FXCollections;
 import utility7thsea.model.Preset;
+import utility7thsea.singletons.DataTransitSingleton;
 import utility7thsea.singletons.ListsSingleton;
 
 import java.io.File;
@@ -15,49 +16,49 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.Comparator;
 import java.util.List;
+import java.util.Objects;
 import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 public class PresetService {
-    public static boolean createPreset(String name, List<Long> presetIds){
+    public static void createPreset(String name, List<Long> presetIds) throws IOException, URISyntaxException {
         ListsSingleton.getInstance().getPresets().sort(Comparator.comparingLong(Preset::getId));
-        Preset toAdd = new Preset(getFirstFreeId(),name,presetIds);
+        Preset toAdd = new Preset(getFirstFreeId(), name, presetIds);
         ListsSingleton.getInstance().getPresets().add(toAdd);
-        try {
-            URI uri = PresetService.class.getResource("/data/PresetsFile.csv").toURI();
-            String mainPath = Paths.get(uri).toString();
-            FileOutputStream fos = new FileOutputStream(mainPath, true);
-            fos.write(toAdd.toCsv().getBytes());
-            fos.close();
-            return true;
-        }catch(Exception e){
-            return false;
-        }
+
+        URI uri = Objects.requireNonNull(PresetService.class.getResource("/data/presetsFile.csv")).toURI();
+        String mainPath = Paths.get(uri).toString();
+        FileOutputStream fos = new FileOutputStream(mainPath, true);
+        fos.write(toAdd.toCsv().getBytes());
+        fos.close();
+
     }
 
-    private static long getFirstFreeId(){
+    private static long getFirstFreeId() {
+        if(DataTransitSingleton.getInstance().getEditId() != -1)
+            return DataTransitSingleton.getInstance().getEditId();
         long index = 0;
-        for(Preset p:ListsSingleton.getInstance().getPresets()){
-            if(index!=p.getId()){
+        for (Preset p : ListsSingleton.getInstance().getPresets()) {
+            if (index != p.getId()) {
                 return index;
             }
-            index ++;
+            index++;
         }
         return index;
     }
 
 
-    public static void removePreset(long id){
+    public static void removePreset(long id) {
 
         ListsSingleton.getInstance().removePresetById(id);
 
         try {
-            File file = new File(PresetService.class.getResource("/data/PresetsFile.csv").toURI());
+            File file = new File(Objects.requireNonNull(PresetService.class.getResource("/data/presetsFile.csv")).toURI());
             file.delete();
             file.createNewFile();
             try (FileOutputStream fos = new FileOutputStream(file)) {
-                ListsSingleton.getInstance().getPresets().forEach(Preset-> {
+                ListsSingleton.getInstance().getPresets().forEach(Preset -> {
                     try {
                         fos.write(Preset.toCsv().getBytes(StandardCharsets.UTF_8));
                     } catch (IOException e) {
@@ -73,7 +74,7 @@ public class PresetService {
     public static int getAllPresets() throws URISyntaxException {
         int status = 200;
         List<Preset> presetList;
-        URI uri = PresetService.class.getResource("/data/presetsFile.csv").toURI();
+        URI uri = Objects.requireNonNull(PresetService.class.getResource("/data/presetsFile.csv")).toURI();
         String mainPath = Paths.get(uri).toString();
         Path path = Paths.get(mainPath);
         try (Stream<String> stream = Files.lines(path)) {
@@ -91,7 +92,7 @@ public class PresetService {
 
     private static Preset stringToPreset(String s) {
         String[] values = s.split(";");
-        List<String> stringIds = List.of(values[2].replaceAll(Pattern.quote("["),"").replaceAll("]","").split(","));
+        List<String> stringIds = List.of(values[2].replaceAll(Pattern.quote("["), "").replaceAll("]", "").split(","));
         return new Preset(Long.parseLong(values[0]), values[1], stringIds.stream().map(Long::parseLong).toList());
     }
 }

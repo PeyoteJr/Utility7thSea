@@ -1,9 +1,6 @@
 package utility7thsea.model;
 
 
-import javafx.scene.control.Button;
-
-import java.util.Arrays;
 import java.util.List;
 
 
@@ -44,24 +41,12 @@ public class Character {
         return nation;
     }
 
-    public void setNation(String nation) {
-        this.nation = nation;
-    }
-
     public List<String> getFast_reflexes() {
         return fast_reflexes;
     }
 
-    public void setFast_reflexes(List<String> fast_reflexes) {
-        this.fast_reflexes = fast_reflexes;
-    }
-
     public List<String> getDuelist() {
         return duelist;
-    }
-
-    public void setDuelist(List<String> duelist) {
-        this.duelist = duelist;
     }
 
     public String toCsv() {
@@ -82,5 +67,10 @@ public class Character {
         }
         csvLine.append("\n");
         return csvLine.toString();
+    }
+
+    @Override
+    public String toString() {
+        return name + " da " + nation;
     }
 }
