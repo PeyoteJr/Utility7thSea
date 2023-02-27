@@ -4,18 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="61a4192b-f630-4a84-809b-bbcb4004bd83" name="Changes" comment="Gestione preset finita">
-      <change afterPath="$PROJECT_DIR$/src/main/java/utility7thsea/controller/PresetCreationController.java" afterDir="false" />
+    <list default="true" id="61a4192b-f630-4a84-809b-bbcb4004bd83" name="Changes" comment="Gestione preset finita, bug modifica da risolvere">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/utility7thsea/controller/CharacterCreationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/utility7thsea/controller/CharacterCreationController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/utility7thsea/controller/PresetController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/utility7thsea/controller/PresetController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/utility7thsea/model/Character.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/utility7thsea/model/Character.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/utility7thsea/model/Preset.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/utility7thsea/model/Preset.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/utility7thsea/service/CharacterService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/utility7thsea/service/CharacterService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/utility7thsea/service/PresetService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/utility7thsea/service/PresetService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/utility7thsea/singletons/ListsSingleton.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/utility7thsea/singletons/ListsSingleton.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/utility7thsea/addPreset.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/utility7thsea/addPreset.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -176,7 +168,14 @@
       <option name="project" value="LOCAL" />
       <updated>1677350286563</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="Gestione preset finita, bug modifica da risolvere">
+      <created>1677512426975</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1677512426975</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="UnknownFeatures">
@@ -194,7 +193,8 @@
     <MESSAGE value="Finita gestione personaggio" />
     <MESSAGE value="Inizio gestione presets" />
     <MESSAGE value="Gestione preset finita" />
-    <option name="LAST_COMMIT_MESSAGE" value="Gestione preset finita" />
+    <MESSAGE value="Gestione preset finita, bug modifica da risolvere" />
+    <option name="LAST_COMMIT_MESSAGE" value="Gestione preset finita, bug modifica da risolvere" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -210,9 +210,9 @@
           <option name="timeStamp" value="5" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/utility7thsea/controller/PresetCreationController.java</url>
-          <line>61</line>
-          <option name="timeStamp" value="6" />
+          <url>file://$PROJECT_DIR$/src/main/java/utility7thsea/service/CharacterService.java</url>
+          <line>51</line>
+          <option name="timeStamp" value="11" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

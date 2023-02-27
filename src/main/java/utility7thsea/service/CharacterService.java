@@ -43,38 +43,22 @@ public class CharacterService {
 
     public static void createCharacter(String name, String nation, List<String> fast_reflexes, List<String> duelist) {
         ListsSingleton.getInstance().getCharacters().sort(Comparator.comparingLong(Character::getId));
+        for (Character c: ListsSingleton.getInstance().getCharacters()){
+            if(c.getId() == DataTransitSingleton.getInstance().getEditId()){
+                ListsSingleton.getInstance().getCharacters().remove(c);
+                break;
+            }
+        }
         Character toAdd = new Character(getFirstFreeId(), name, nation, fast_reflexes, duelist);
         ListsSingleton.getInstance().getCharacters().add(toAdd);
-        try {
-            URI uri = CharacterService.class.getResource("/data/charactersFile.csv").toURI();
-            String mainPath = Paths.get(uri).toString();
-            FileOutputStream fos = new FileOutputStream(mainPath, true);
-            fos.write(toAdd.toCsv().getBytes());
-            fos.close();
-        } catch (Exception ignored) {
-        }
+        rewriteCharactersFile();
     }
 
     public static void removeCharacter(long id) {
 
         ListsSingleton.getInstance().removeCharacterById(id);
 
-        try {
-            File file = new File(CharacterService.class.getResource("/data/charactersFile.csv").toURI());
-            file.delete();
-            file.createNewFile();
-            try (FileOutputStream fos = new FileOutputStream(file)) {
-                ListsSingleton.getInstance().getCharacters().forEach(character -> {
-                    try {
-                        fos.write(character.toCsv().getBytes(StandardCharsets.UTF_8));
-                    } catch (IOException e) {
-                        throw new RuntimeException(e);
-                    }
-                });
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+        rewriteCharactersFile();
     }
 
     private static Character stringToCharacter(String inputString) {
@@ -103,6 +87,25 @@ public class CharacterService {
             index++;
         }
         return index;
+    }
+
+    private static void rewriteCharactersFile(){
+        try {
+            File file = new File(CharacterService.class.getResource("/data/charactersFile.csv").toURI());
+            file.delete();
+            file.createNewFile();
+            try (FileOutputStream fos = new FileOutputStream(file)) {
+                ListsSingleton.getInstance().getCharacters().forEach(character -> {
+                    try {
+                        fos.write(character.toCsv().getBytes(StandardCharsets.UTF_8));
+                    } catch (IOException e) {
+                        throw new RuntimeException(e);
+                    }
+                });
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
 }

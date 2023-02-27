@@ -2,6 +2,7 @@ package utility7thsea.service;
 
 import javafx.collections.FXCollections;
 import utility7thsea.model.Preset;
+import utility7thsea.model.Preset;
 import utility7thsea.singletons.DataTransitSingleton;
 import utility7thsea.singletons.ListsSingleton;
 
@@ -22,16 +23,18 @@ import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 public class PresetService {
-    public static void createPreset(String name, List<Long> presetIds) throws IOException, URISyntaxException {
+    public static void createPreset(String name, List<Long> presetIds){
         ListsSingleton.getInstance().getPresets().sort(Comparator.comparingLong(Preset::getId));
         Preset toAdd = new Preset(getFirstFreeId(), name, presetIds);
+        for (Preset p: ListsSingleton.getInstance().getPresets()){
+            if(p.getId() == DataTransitSingleton.getInstance().getEditId()){
+                ListsSingleton.getInstance().getPresets().remove(p);
+                break;
+            }
+        }
         ListsSingleton.getInstance().getPresets().add(toAdd);
 
-        URI uri = Objects.requireNonNull(PresetService.class.getResource("/data/presetsFile.csv")).toURI();
-        String mainPath = Paths.get(uri).toString();
-        FileOutputStream fos = new FileOutputStream(mainPath, true);
-        fos.write(toAdd.toCsv().getBytes());
-        fos.close();
+        rewritePresetFile();
 
     }
 
@@ -52,23 +55,8 @@ public class PresetService {
     public static void removePreset(long id) {
 
         ListsSingleton.getInstance().removePresetById(id);
+        rewritePresetFile();
 
-        try {
-            File file = new File(Objects.requireNonNull(PresetService.class.getResource("/data/presetsFile.csv")).toURI());
-            file.delete();
-            file.createNewFile();
-            try (FileOutputStream fos = new FileOutputStream(file)) {
-                ListsSingleton.getInstance().getPresets().forEach(Preset -> {
-                    try {
-                        fos.write(Preset.toCsv().getBytes(StandardCharsets.UTF_8));
-                    } catch (IOException e) {
-                        throw new RuntimeException(e);
-                    }
-                });
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
     }
 
     public static int getAllPresets() throws URISyntaxException {
@@ -94,5 +82,24 @@ public class PresetService {
         String[] values = s.split(";");
         List<String> stringIds = List.of(values[2].replaceAll(Pattern.quote("["), "").replaceAll("]", "").split(","));
         return new Preset(Long.parseLong(values[0]), values[1], stringIds.stream().map(Long::parseLong).toList());
+    }
+
+    private static void rewritePresetFile(){
+        try {
+            File file = new File(Objects.requireNonNull(PresetService.class.getResource("/data/presetsFile.csv")).toURI());
+            file.delete();
+            file.createNewFile();
+            try (FileOutputStream fos = new FileOutputStream(file)) {
+                ListsSingleton.getInstance().getPresets().forEach(Preset -> {
+                    try {
+                        fos.write(Preset.toCsv().getBytes(StandardCharsets.UTF_8));
+                    } catch (IOException e) {
+                        throw new RuntimeException(e);
+                    }
+                });
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 }
