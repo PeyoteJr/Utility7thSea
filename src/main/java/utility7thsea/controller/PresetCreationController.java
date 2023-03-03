@@ -65,8 +65,11 @@ public class PresetCreationController implements Initializable {
     @FXML
     protected void onResetButtonClick() {
         name.setText("");
-        availableCharacters = ListsSingleton.getInstance().getCharacters();
-        inPresetList.removeAll();
+        availableCharacters.clear();
+        inPresetList.clear();
+        availableCharacters.addAll(ListsSingleton.getInstance().getCharacters());
+        available.getSelectionModel().clearSelection();
+        inPreset.getSelectionModel().clearSelection();
 
     }
 
