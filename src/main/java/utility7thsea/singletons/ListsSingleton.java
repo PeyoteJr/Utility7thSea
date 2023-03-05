@@ -11,6 +11,7 @@ import java.util.Arrays;
 public class ListsSingleton {
     private  ObservableList<Character> characters;
     private  ObservableList<Preset> presets;
+    private ObservableList<Character> charactersInSession;
     private ArrayList<String> abilities;
     private ArrayList<String> traits;
     private ArrayList<String> duel_styles;
@@ -80,4 +81,11 @@ public class ListsSingleton {
         return nations;
     }
 
+    public ObservableList<Character> getCharactersInSession() {
+        return charactersInSession;
+    }
+
+    public void setCharactersInSession(ObservableList<Character> charactersInSession) {
+        this.charactersInSession = charactersInSession;
+    }
 }

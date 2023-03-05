@@ -4,13 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="61a4192b-f630-4a84-809b-bbcb4004bd83" name="Changes" comment="Fix bug reset">
-      <change afterPath="$PROJECT_DIR$/src/main/java/utility7thsea/controller/SessionController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/utility7thsea/controller/SessionCreationController.java" afterDir="false" />
+    <list default="true" id="61a4192b-f630-4a84-809b-bbcb4004bd83" name="Changes" comment="Prima creazione sessione">
+      <change afterPath="$PROJECT_DIR$/src/main/java/utility7thsea/service/SessionService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/utility7thsea/controller/MainController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/utility7thsea/controller/MainController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/utility7thsea/controller/PresetCreationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/utility7thsea/controller/PresetCreationController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/utility7thsea/model/Preset.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/utility7thsea/model/Preset.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/utility7thsea/controller/SessionCreationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/utility7thsea/controller/SessionCreationController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/utility7thsea/singletons/ListsSingleton.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/utility7thsea/singletons/ListsSingleton.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/utility7thsea/prepareSession.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/utility7thsea/prepareSession.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -70,7 +68,7 @@
         </pattern>
       </extension>
       <method v="2">
-        <option name="Maven.BeforeRunTask" enabled="true" file="$PROJECT_DIR$/pom.xml" goal="clean package" />
+        <option name="Maven.BeforeRunTask" enabled="true" file="$PROJECT_DIR$/pom.xml" goal="package" />
       </method>
     </configuration>
     <recent_temporary>
@@ -193,7 +191,21 @@
       <option name="project" value="LOCAL" />
       <updated>1677879664261</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="Fix binding">
+      <created>1678023203867</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1678023203867</updated>
+    </task>
+    <task id="LOCAL-00017" summary="Prima creazione sessione">
+      <created>1678023218637</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1678023218637</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="UnknownFeatures">
@@ -214,7 +226,9 @@
     <MESSAGE value="Gestione preset finita, bug modifica da risolvere" />
     <MESSAGE value="Fix bug cancellazione" />
     <MESSAGE value="Fix bug reset" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fix bug reset" />
+    <MESSAGE value="Fix binding" />
+    <MESSAGE value="Prima creazione sessione" />
+    <option name="LAST_COMMIT_MESSAGE" value="Prima creazione sessione" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

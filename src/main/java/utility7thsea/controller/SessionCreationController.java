@@ -3,6 +3,7 @@ package utility7thsea.controller;
 import javafx.beans.binding.Bindings;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -16,21 +17,19 @@ import utility7thsea.model.Character;
 import utility7thsea.model.Preset;
 import utility7thsea.service.CharacterService;
 import utility7thsea.service.PresetService;
+import utility7thsea.service.SessionService;
 import utility7thsea.singletons.DataTransitSingleton;
 import utility7thsea.singletons.ListsSingleton;
 
 import java.io.IOException;
 import java.net.URISyntaxException;
 import java.net.URL;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Objects;
-import java.util.ResourceBundle;
+import java.util.*;
 
 public class SessionCreationController implements Initializable {
 
     private ObservableList<Character> availableCharacters = FXCollections.observableArrayList(new ArrayList<>());
-    private final ObservableList<Character> inSessionList = FXCollections.observableArrayList(new ArrayList<>());
+    private ObservableList<Character> inSessionList = FXCollections.observableArrayList(new ArrayList<>());
 
     @FXML
     private Button backButton;
@@ -48,12 +47,18 @@ public class SessionCreationController implements Initializable {
     private ComboBox<Preset> presetComboBox;
 
     @FXML
-    private TextField name;
-    @FXML
     private ListView<Character> available;
 
     @FXML
     private ListView<Character> inSession;
+
+    @FXML
+    protected void onLoadPresetClick() {
+        Preset chosenPreset = presetComboBox.getSelectionModel().getSelectedItem();
+        List<Character> toMove = ListsSingleton.getInstance().getCharacters().stream().filter(character -> chosenPreset.getCharacterIds().contains(character.getId())).toList();
+        toMove.stream().filter(character -> !inSessionList.contains(character)).forEach(character -> inSessionList.add(character));
+        availableCharacters.removeAll(inSessionList);
+    }
 
     @FXML
     protected void onBackButtonClick() throws IOException {
@@ -61,9 +66,10 @@ public class SessionCreationController implements Initializable {
     }
     @FXML
     protected void onCreateButtonClick() throws IOException {
-        List<Long> characterIds = inSession.getItems().stream().map(Character::getId).toList();
-        PresetService.createPreset(name.getText(),characterIds);
-        back();
+        SessionService.createSession(inSessionList);
+        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/utility7thsea/mainSession.fxml")));
+        Window window = backButton.getScene().getWindow();
+        window.getScene().setRoot(root);
     }
 
     @FXML
@@ -91,15 +97,9 @@ public class SessionCreationController implements Initializable {
     }
 
     private void back() throws IOException {
-        DataTransitSingleton.getInstance().setEditId(-1);
         Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/utility7thsea/main.fxml")));
         Window window = backButton.getScene().getWindow();
         window.getScene().setRoot(root);
-    }
-
-    @FXML
-    protected void onPresetComboBoxValueChange(){
-
     }
 
 
@@ -120,6 +120,8 @@ public class SessionCreationController implements Initializable {
         available.setItems(availableCharacters);
         inSession.setItems(inSessionList);
         presetComboBox.setItems(ListsSingleton.getInstance().getPresets());
-        createButton.disableProperty().bind(Bindings.isEmpty(inSessionList));
+        createButton.disableProperty().bind(Bindings.isEmpty(inSession.getItems()));
     }
+
+
 }
