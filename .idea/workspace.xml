@@ -4,10 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="61a4192b-f630-4a84-809b-bbcb4004bd83" name="Changes" comment="Gestione preset finita, bug modifica da risolvere">
+    <list default="true" id="61a4192b-f630-4a84-809b-bbcb4004bd83" name="Changes" comment="Fix bug reset">
+      <change afterPath="$PROJECT_DIR$/src/main/java/utility7thsea/controller/SessionController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/utility7thsea/controller/SessionCreationController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/utility7thsea/service/CharacterService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/utility7thsea/service/CharacterService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/utility7thsea/service/PresetService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/utility7thsea/service/PresetService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/utility7thsea/controller/MainController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/utility7thsea/controller/MainController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/utility7thsea/controller/PresetCreationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/utility7thsea/controller/PresetCreationController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/utility7thsea/model/Preset.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/utility7thsea/model/Preset.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/utility7thsea/prepareSession.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/utility7thsea/prepareSession.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -175,7 +179,21 @@
       <option name="project" value="LOCAL" />
       <updated>1677512426975</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="Fix bug cancellazione">
+      <created>1677513632933</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1677513632933</updated>
+    </task>
+    <task id="LOCAL-00015" summary="Fix bug reset">
+      <created>1677879664261</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1677879664261</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="UnknownFeatures">
@@ -194,19 +212,16 @@
     <MESSAGE value="Inizio gestione presets" />
     <MESSAGE value="Gestione preset finita" />
     <MESSAGE value="Gestione preset finita, bug modifica da risolvere" />
-    <option name="LAST_COMMIT_MESSAGE" value="Gestione preset finita, bug modifica da risolvere" />
+    <MESSAGE value="Fix bug cancellazione" />
+    <MESSAGE value="Fix bug reset" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fix bug reset" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/utility7thsea/controller/MainController.java</url>
-          <line>27</line>
-          <option name="timeStamp" value="2" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/utility7thsea/service/PresetService.java</url>
-          <line>25</line>
+          <line>26</line>
           <option name="timeStamp" value="5" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">

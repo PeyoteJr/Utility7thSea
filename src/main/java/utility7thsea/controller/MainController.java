@@ -23,7 +23,7 @@ public class MainController{
 
     @FXML
     protected void onStartClick() throws IOException {
-        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/utility7thsea/mainSession.fxml")));
+        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/utility7thsea/prepareSession.fxml")));
         window = startButton.getScene().getWindow();
         window.getScene().setRoot(root);
     }
