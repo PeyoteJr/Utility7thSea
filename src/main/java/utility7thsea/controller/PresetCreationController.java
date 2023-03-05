@@ -18,7 +18,6 @@ import utility7thsea.singletons.DataTransitSingleton;
 import utility7thsea.singletons.ListsSingleton;
 
 import java.io.IOException;
-import java.net.URISyntaxException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
@@ -56,7 +55,7 @@ public class PresetCreationController implements Initializable {
         back();
     }
     @FXML
-    protected void onCreateButtonClick() throws IOException, URISyntaxException {
+    protected void onCreateButtonClick() throws IOException {
         List<Long> characterIds = inPreset.getItems().stream().map(Character::getId).toList();
         PresetService.createPreset(name.getText(),characterIds);
         back();
@@ -107,7 +106,7 @@ public class PresetCreationController implements Initializable {
             availableCharacters.removeAll(inPresetList);
         }
         createButton.disableProperty().bind(
-                Bindings.isEmpty(name.textProperty())
+                Bindings.isEmpty(name.textProperty()).or(Bindings.isEmpty(inPreset.getItems()))
         );
 
     }
