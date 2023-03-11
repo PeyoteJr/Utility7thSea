@@ -3,7 +3,6 @@ package utility7thsea.controller;
 import javafx.beans.binding.Bindings;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -11,20 +10,21 @@ import javafx.scene.Parent;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.ListView;
-import javafx.scene.control.TextField;
 import javafx.stage.Window;
 import utility7thsea.model.Character;
 import utility7thsea.model.Preset;
 import utility7thsea.service.CharacterService;
 import utility7thsea.service.PresetService;
 import utility7thsea.service.SessionService;
-import utility7thsea.singletons.DataTransitSingleton;
 import utility7thsea.singletons.ListsSingleton;
 
 import java.io.IOException;
 import java.net.URISyntaxException;
 import java.net.URL;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Objects;
+import java.util.ResourceBundle;
 
 public class SessionCreationController implements Initializable {
 

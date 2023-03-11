@@ -41,7 +41,7 @@ public class CharacterService {
         return status;
     }
 
-    public static void createCharacter(String name, String nation, List<String> fast_reflexes, List<String> duelist) {
+    public static void createCharacter(String name, String nation, List<String> fast_reflexes, List<String> duelist,int dramatic, int startingHeroPoints) {
         ListsSingleton.getInstance().getCharacters().sort(Comparator.comparingLong(Character::getId));
         for (Character c: ListsSingleton.getInstance().getCharacters()){
             if(c.getId() == DataTransitSingleton.getInstance().getEditId()){
@@ -49,7 +49,7 @@ public class CharacterService {
                 break;
             }
         }
-        Character toAdd = new Character(getFirstFreeId(), name, nation, fast_reflexes, duelist);
+        Character toAdd = new Character(getFirstFreeId(), name, nation, fast_reflexes, duelist,dramatic,startingHeroPoints);
         ListsSingleton.getInstance().getCharacters().add(toAdd);
         rewriteCharactersFile();
     }
@@ -63,17 +63,10 @@ public class CharacterService {
 
     private static Character stringToCharacter(String inputString) {
         String[] values = inputString.split(";");
-        if (values.length < 5) {
-            int i = values.length;
-            values = Arrays.copyOf(values, 5);
-            for (; i < 5; i++) {
-                values[i] = "";
-            }
-
-        }
-        return new Character(Long.parseLong(values[0]), values[1], values[2],
+                return new Character(Long.parseLong(values[0]), values[1], values[2],
                 List.of(values[3].replaceAll(Pattern.quote("["), "").replaceAll("]", "").split(","))
-                , List.of(values[4].replaceAll(Pattern.quote("["), "").replaceAll("]", "").split(",")));
+                , List.of(values[4].replaceAll(Pattern.quote("["), "").replaceAll("]", "").split(","))
+                ,Integer.parseInt(values[5]),Integer.parseInt(values[6]));
     }
 
     private static long getFirstFreeId() {

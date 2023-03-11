@@ -12,12 +12,17 @@ public class Character {
     private List<String> fast_reflexes;
     private List<String> duelist;
 
-    public Character(long id, String name, String nation, List<String> fast_reflexes, List<String> duelist) {
+    private int dramatic = 0;
+    private int startingHeroPoints;
+
+    public Character(long id, String name, String nation, List<String> fast_reflexes, List<String> duelist, int dramatic, int startingHeroPoints) {
         this.id = id;
         this.name = name;
         this.nation = nation;
         this.fast_reflexes = fast_reflexes;
         this.duelist = duelist;
+        this.dramatic =dramatic;
+        this.startingHeroPoints = startingHeroPoints;
 
     }
 
@@ -49,6 +54,22 @@ public class Character {
         return duelist;
     }
 
+    public int getDramatic() {
+        return dramatic;
+    }
+
+    public void setDramatic(int dramatic) {
+        this.dramatic = dramatic;
+    }
+
+    public int getStartingHeroPoints() {
+        return startingHeroPoints;
+    }
+
+    public void setStartingHeroPoints(int startingHeroPoints) {
+        this.startingHeroPoints = startingHeroPoints;
+    }
+
     public String toCsv() {
         String nationToAppend = nation.length() > 0?nation:"";
         StringBuilder csvLine = new StringBuilder(id + ";" + name + ";" + nationToAppend + ";");
@@ -65,6 +86,7 @@ public class Character {
                 csvLine.append(",");
             }
         }
+        csvLine.append(";").append(dramatic).append(";").append(startingHeroPoints);
         csvLine.append("\n");
         return csvLine.toString();
     }

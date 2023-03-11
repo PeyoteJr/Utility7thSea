@@ -4,12 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="61a4192b-f630-4a84-809b-bbcb4004bd83" name="Changes" comment="Prima creazione sessione">
-      <change afterPath="$PROJECT_DIR$/src/main/java/utility7thsea/service/SessionService.java" afterDir="false" />
+    <list default="true" id="61a4192b-f630-4a84-809b-bbcb4004bd83" name="Changes" comment="Aggiunti punti eroe e ferite drammatiche + fix">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/utility7thsea/controller/CharacterCreationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/utility7thsea/controller/CharacterCreationController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/utility7thsea/controller/SessionCreationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/utility7thsea/controller/SessionCreationController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/utility7thsea/singletons/ListsSingleton.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/utility7thsea/singletons/ListsSingleton.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/utility7thsea/prepareSession.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/utility7thsea/prepareSession.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/utility7thsea/model/Character.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/utility7thsea/model/Character.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/utility7thsea/service/CharacterService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/utility7thsea/service/CharacterService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/data/charactersFile.csv" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/data/charactersFile.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/utility7thsea/addCharacter.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/utility7thsea/addCharacter.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/utility7thsea/mainSession.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/utility7thsea/mainSession.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -68,7 +71,7 @@
         </pattern>
       </extension>
       <method v="2">
-        <option name="Maven.BeforeRunTask" enabled="true" file="$PROJECT_DIR$/pom.xml" goal="package" />
+        <option name="Maven.BeforeRunTask" enabled="true" file="$PROJECT_DIR$/pom.xml" goal="clean package" />
       </method>
     </configuration>
     <recent_temporary>
@@ -205,7 +208,14 @@
       <option name="project" value="LOCAL" />
       <updated>1678023218637</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="Creazione sessione completa">
+      <created>1678031469858</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1678031469858</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="UnknownFeatures">
@@ -228,7 +238,9 @@
     <MESSAGE value="Fix bug reset" />
     <MESSAGE value="Fix binding" />
     <MESSAGE value="Prima creazione sessione" />
-    <option name="LAST_COMMIT_MESSAGE" value="Prima creazione sessione" />
+    <MESSAGE value="Creazione sessione completa" />
+    <MESSAGE value="Aggiunti punti eroe e ferite drammatiche + fix" />
+    <option name="LAST_COMMIT_MESSAGE" value="Aggiunti punti eroe e ferite drammatiche + fix" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -239,9 +251,12 @@
           <option name="timeStamp" value="5" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/utility7thsea/service/CharacterService.java</url>
-          <line>51</line>
-          <option name="timeStamp" value="11" />
+          <url>file://$PROJECT_DIR$/src/main/java/utility7thsea/controller/CharacterCreationController.java</url>
+          <line>86</line>
+          <properties>
+            <option name="lambda-ordinal" value="-1" />
+          </properties>
+          <option name="timeStamp" value="12" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

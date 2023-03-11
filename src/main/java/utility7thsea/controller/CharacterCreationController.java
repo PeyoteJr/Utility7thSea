@@ -6,6 +6,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.control.Button;
+import javafx.scene.control.CheckBox;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
 import javafx.stage.Window;
@@ -40,6 +41,9 @@ public class CharacterCreationController implements Initializable {
     @FXML
     private CheckComboBox<String> duelist;
 
+    @FXML
+    private CheckBox valorous_spirit;
+
 
     @FXML
     protected void onBackButtonClick() throws IOException {
@@ -47,7 +51,8 @@ public class CharacterCreationController implements Initializable {
     }
     @FXML
     protected void onCreateButtonClick() throws IOException {
-        CharacterService.createCharacter(name.getText(),nation.getValue(),fast_reflexes.getCheckModel().getCheckedItems(),duelist.getCheckModel().getCheckedItems());
+        int startingHeroPoints = valorous_spirit.isSelected()?2:1;
+        CharacterService.createCharacter(name.getText(),nation.getValue(),fast_reflexes.getCheckModel().getCheckedItems(),duelist.getCheckModel().getCheckedItems(), 0, startingHeroPoints);
         back();
     }
 
@@ -80,6 +85,9 @@ public class CharacterCreationController implements Initializable {
             nation.setValue(c.getNation());
             c.getFast_reflexes().forEach(value->fast_reflexes.getCheckModel().check(value));
             c.getDuelist().forEach(value->duelist.getCheckModel().check(value));
+            if(c.getStartingHeroPoints() == 2){
+                valorous_spirit.setSelected(true);
+            }
         }
         createButton.disableProperty().bind(
                 Bindings.isEmpty(name.textProperty())
