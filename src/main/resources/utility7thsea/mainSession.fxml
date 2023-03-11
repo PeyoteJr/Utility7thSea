@@ -1,13 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            prefHeight="400.0" prefWidth="600.0">
+<AnchorPane prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="utility7thsea.controller.SessionController">
 
+        <HBox layoutX="300.0" layoutY="602.0" prefHeight="111.0" prefWidth="681.0" spacing="80.0">
+                <Button fx:id="startSequenceButton" mnemonicParsing="false" onAction="#onStartSequenceButtonClick" prefHeight="147.0" prefWidth="300.0" text="INIZIA SEQUENZA" />
+                <Button fx:id="endSessionButton" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#onendSessionButtonClick" prefHeight="147.0" prefWidth="300.0" text="FINE SESSIONE" />
+        </HBox>
+        <Text layoutX="535.0" layoutY="66.0" strokeType="OUTSIDE" strokeWidth="0.0" text="SESSIONE">
+            <font>
+                <Font size="48.0" />
+            </font>
+        </Text>
+   <VBox fx:id="characterList" layoutX="100.0" layoutY="84.0" prefHeight="510.0" prefWidth="1080.0" />
 </AnchorPane>
