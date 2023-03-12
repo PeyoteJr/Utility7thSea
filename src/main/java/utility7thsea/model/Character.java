@@ -15,14 +15,17 @@ public class Character {
     private int dramatic = 0;
     private int startingHeroPoints;
 
+    private int currentHeroPoints;
+
     public Character(int id, String name, String nation, List<String> fast_reflexes, List<String> duelist, int dramatic, int startingHeroPoints) {
         this.id = id;
         this.name = name;
         this.nation = nation;
         this.fast_reflexes = fast_reflexes;
         this.duelist = duelist;
-        this.dramatic =dramatic;
+        this.dramatic = dramatic;
         this.startingHeroPoints = startingHeroPoints;
+        this.currentHeroPoints = startingHeroPoints;
 
     }
 
@@ -68,6 +71,14 @@ public class Character {
 
     public void setStartingHeroPoints(int startingHeroPoints) {
         this.startingHeroPoints = startingHeroPoints;
+    }
+
+    public int getCurrentHeroPoints() {
+        return currentHeroPoints;
+    }
+
+    public void setCurrentHeroPoints(int currentHeroPoints) {
+        this.currentHeroPoints = currentHeroPoints;
     }
 
     public String toCsv() {

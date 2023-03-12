@@ -82,7 +82,7 @@ public class CharacterService {
         return index;
     }
 
-    private static void rewriteCharactersFile(){
+    public static void rewriteCharactersFile(){
         try {
             File file = new File(CharacterService.class.getResource("/data/charactersFile.csv").toURI());
             file.delete();

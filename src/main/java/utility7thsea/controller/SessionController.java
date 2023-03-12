@@ -1,6 +1,7 @@
 package utility7thsea.controller;
 
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -67,7 +68,7 @@ public class SessionController implements Initializable {
             charachterBox.getChildren().add(heroLabel);
 
 
-            TextField heroPoints = new TextField(String.valueOf(character.getStartingHeroPoints()));
+            TextField heroPoints = new TextField(String.valueOf(character.getCurrentHeroPoints()));
             heroPoints.setFont(Font.font("System", FontWeight.NORMAL, FontPosture.REGULAR, 18));
             charachterBox.getChildren().add(heroPoints);
 
@@ -79,6 +80,18 @@ public class SessionController implements Initializable {
             dramatic.setFont(Font.font("System", FontWeight.NORMAL, FontPosture.REGULAR, 18));
             charachterBox.getChildren().add(dramatic);
 
+            Button confirm = new Button("Salva");
+            confirm.setOnAction(actionEvent -> {
+                try {
+                    int heroPointsValue = Integer.parseInt(heroPoints.getText());
+                    int dramaticWounds = Integer.parseInt(dramatic.getText());
+                    character.setDramatic(dramaticWounds);
+                    character.setCurrentHeroPoints(heroPointsValue);
+                    ListsSingleton.getInstance().getCharacters().set(character.getId(),character);
+                }catch (NumberFormatException e){
+                    System.out.println("Errore nelle textfield");
+                }
+            });
             characterList.getChildren().add(charachterBox);
             }
         );

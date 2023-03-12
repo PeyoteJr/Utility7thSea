@@ -12,9 +12,7 @@ public class SessionService {
     }
 
     public static void cleanSession() {
-        ListsSingleton.getInstance().getCharacters().forEach(character ->{
-            ListsSingleton.getInstance().getCharactersInSession().get((int) character.getId());
-        } );
+        CharacterService.rewriteCharactersFile();
         ListsSingleton.getInstance().getCharactersInSession().removeAll();
     }
 }
