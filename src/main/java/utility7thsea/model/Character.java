@@ -6,7 +6,7 @@ import java.util.List;
 
 public class Character {
 
-    private long id;
+    private int id;
     private String name;
     private String nation;
     private List<String> fast_reflexes;
@@ -15,7 +15,7 @@ public class Character {
     private int dramatic = 0;
     private int startingHeroPoints;
 
-    public Character(long id, String name, String nation, List<String> fast_reflexes, List<String> duelist, int dramatic, int startingHeroPoints) {
+    public Character(int id, String name, String nation, List<String> fast_reflexes, List<String> duelist, int dramatic, int startingHeroPoints) {
         this.id = id;
         this.name = name;
         this.nation = nation;
@@ -26,11 +26,11 @@ public class Character {
 
     }
 
-    public long getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(int id) {
         this.id = id;
     }
 

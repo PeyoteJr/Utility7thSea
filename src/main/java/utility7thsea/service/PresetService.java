@@ -23,8 +23,8 @@ import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 public class PresetService {
-    public static void createPreset(String name, List<Long> presetIds){
-        ListsSingleton.getInstance().getPresets().sort(Comparator.comparingLong(Preset::getId));
+    public static void createPreset(String name, List<Integer> presetIds){
+        ListsSingleton.getInstance().getPresets().sort(Comparator.comparingInt(Preset::getId));
         Preset toAdd = new Preset(getFirstFreeId(), name, presetIds);
         for (Preset p: ListsSingleton.getInstance().getPresets()){
             if(p.getId() == DataTransitSingleton.getInstance().getEditId()){
@@ -38,10 +38,10 @@ public class PresetService {
 
     }
 
-    private static long getFirstFreeId() {
+    private static int getFirstFreeId() {
         if(DataTransitSingleton.getInstance().getEditId() != -1)
             return DataTransitSingleton.getInstance().getEditId();
-        long index = 0;
+        int index = 0;
         for (Preset p : ListsSingleton.getInstance().getPresets()) {
             if (index != p.getId()) {
                 return index;
@@ -52,7 +52,7 @@ public class PresetService {
     }
 
 
-    public static void removePreset(long id) {
+    public static void removePreset(int id) {
 
         ListsSingleton.getInstance().removePresetById(id);
         rewritePresetFile();
@@ -81,7 +81,7 @@ public class PresetService {
     private static Preset stringToPreset(String s) {
         String[] values = s.split(";");
         List<String> stringIds = List.of(values[2].replaceAll(Pattern.quote("["), "").replaceAll("]", "").split(","));
-        return new Preset(Long.parseLong(values[0]), values[1], stringIds.stream().map(Long::parseLong).toList());
+        return new Preset(Integer.parseInt(values[0]), values[1], stringIds.stream().map(Integer::parseInt).toList());
     }
 
     private static void rewritePresetFile(){

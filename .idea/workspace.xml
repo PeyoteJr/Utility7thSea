@@ -4,10 +4,22 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="61a4192b-f630-4a84-809b-bbcb4004bd83" name="Changes" comment="Aggiunti punti eroe e ferite drammatiche + fix">
+    <list default="true" id="61a4192b-f630-4a84-809b-bbcb4004bd83" name="Changes" comment="Implementata schermata di gestione sessione">
+      <change afterPath="$PROJECT_DIR$/src/main/java/utility7thsea/controller/SequenceController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/utility7thsea/mapper/CharacterToSequenceMemberMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/utility7thsea/model/SequenceMember.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/utility7thsea/service/SequenceService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mvnw" beforeDir="false" afterPath="$PROJECT_DIR$/mvnw" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/utility7thsea/controller/PresetCreationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/utility7thsea/controller/PresetCreationController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/utility7thsea/controller/SessionController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/utility7thsea/controller/SessionController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/utility7thsea/mainSession.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/utility7thsea/mainSession.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/utility7thsea/model/Character.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/utility7thsea/model/Character.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/utility7thsea/model/Preset.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/utility7thsea/model/Preset.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/utility7thsea/service/CharacterService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/utility7thsea/service/CharacterService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/utility7thsea/service/PresetService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/utility7thsea/service/PresetService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/utility7thsea/service/SessionService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/utility7thsea/service/SessionService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/utility7thsea/singletons/DataTransitSingleton.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/utility7thsea/singletons/DataTransitSingleton.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/utility7thsea/singletons/ListsSingleton.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/utility7thsea/singletons/ListsSingleton.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -47,6 +59,9 @@
   }
 }</component>
   <component name="RecentsManager">
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="utility7thsea.model" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\acafi\IdeaProjects\Utility7thSea\src\main\resources\com\example\utility7thsea" />
       <recent name="C:\Users\acafi\IdeaProjects\Utility7thSea\src\main\resources" />
@@ -217,7 +232,21 @@
       <option name="project" value="LOCAL" />
       <updated>1678543038905</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="Implementata schermata di gestione sessione">
+      <created>1678554117920</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1678554117920</updated>
+    </task>
+    <task id="LOCAL-00021" summary="Implementata schermata di gestione sessione">
+      <created>1678560066878</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1678560066878</updated>
+    </task>
+    <option name="localTasksCounter" value="22" />
     <servers />
   </component>
   <component name="UnknownFeatures">
@@ -242,16 +271,12 @@
     <MESSAGE value="Prima creazione sessione" />
     <MESSAGE value="Creazione sessione completa" />
     <MESSAGE value="Aggiunti punti eroe e ferite drammatiche + fix" />
-    <option name="LAST_COMMIT_MESSAGE" value="Aggiunti punti eroe e ferite drammatiche + fix" />
+    <MESSAGE value="Implementata schermata di gestione sessione" />
+    <option name="LAST_COMMIT_MESSAGE" value="Implementata schermata di gestione sessione" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/utility7thsea/service/PresetService.java</url>
-          <line>26</line>
-          <option name="timeStamp" value="5" />
-        </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/utility7thsea/controller/CharacterCreationController.java</url>
           <line>86</line>

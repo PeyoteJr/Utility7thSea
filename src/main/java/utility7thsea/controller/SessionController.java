@@ -51,7 +51,7 @@ public class SessionController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         int characters = ListsSingleton.getInstance().getCharactersInSession().size();
-        ListsSingleton.getInstance().getCharactersInSession().stream().forEach(character -> {
+        ListsSingleton.getInstance().getCharactersInSession().forEach(character -> {
             HBox charachterBox = new HBox();
             charachterBox.setSpacing(50);
             charachterBox.setAlignment(Pos.CENTER);
@@ -59,24 +59,24 @@ public class SessionController implements Initializable {
             charachterBox.setPrefHeight(characterList.getPrefHeight()/characters);
 
             Label descr = new Label(character.toString());
-            descr.setFont(Font.font("System", FontWeight.NORMAL, FontPosture.REGULAR, 20));
+            descr.setFont(Font.font("System", FontWeight.NORMAL, FontPosture.REGULAR, 18));
             charachterBox.getChildren().add(descr);
 
             Label heroLabel = new Label("Punti eroe: ");
-            heroLabel.setFont(Font.font("System", FontWeight.NORMAL, FontPosture.REGULAR, 20));
+            heroLabel.setFont(Font.font("System", FontWeight.NORMAL, FontPosture.REGULAR, 18));
             charachterBox.getChildren().add(heroLabel);
 
 
             TextField heroPoints = new TextField(String.valueOf(character.getStartingHeroPoints()));
-            heroPoints.setFont(Font.font("System", FontWeight.NORMAL, FontPosture.REGULAR, 20));
+            heroPoints.setFont(Font.font("System", FontWeight.NORMAL, FontPosture.REGULAR, 18));
             charachterBox.getChildren().add(heroPoints);
 
             Label dramaticLabel = new Label("Ferite drammatiche: ");
-            dramaticLabel.setFont(Font.font("System", FontWeight.NORMAL, FontPosture.REGULAR, 20));
+            dramaticLabel.setFont(Font.font("System", FontWeight.NORMAL, FontPosture.REGULAR, 18));
             charachterBox.getChildren().add(dramaticLabel);
 
             TextField dramatic = new TextField(String.valueOf(character.getDramatic()));
-            dramatic.setFont(Font.font("System", FontWeight.NORMAL, FontPosture.REGULAR, 20));
+            dramatic.setFont(Font.font("System", FontWeight.NORMAL, FontPosture.REGULAR, 18));
             charachterBox.getChildren().add(dramatic);
 
             characterList.getChildren().add(charachterBox);

@@ -42,7 +42,7 @@ public class CharacterService {
     }
 
     public static void createCharacter(String name, String nation, List<String> fast_reflexes, List<String> duelist,int dramatic, int startingHeroPoints) {
-        ListsSingleton.getInstance().getCharacters().sort(Comparator.comparingLong(Character::getId));
+        ListsSingleton.getInstance().getCharacters().sort(Comparator.comparingInt(Character::getId));
         for (Character c: ListsSingleton.getInstance().getCharacters()){
             if(c.getId() == DataTransitSingleton.getInstance().getEditId()){
                 ListsSingleton.getInstance().getCharacters().remove(c);
@@ -54,7 +54,7 @@ public class CharacterService {
         rewriteCharactersFile();
     }
 
-    public static void removeCharacter(long id) {
+    public static void removeCharacter(int id) {
 
         ListsSingleton.getInstance().removeCharacterById(id);
 
@@ -63,16 +63,16 @@ public class CharacterService {
 
     private static Character stringToCharacter(String inputString) {
         String[] values = inputString.split(";");
-                return new Character(Long.parseLong(values[0]), values[1], values[2],
+                return new Character(Integer.parseInt(values[0]), values[1], values[2],
                 List.of(values[3].replaceAll(Pattern.quote("["), "").replaceAll("]", "").split(","))
                 , List.of(values[4].replaceAll(Pattern.quote("["), "").replaceAll("]", "").split(","))
                 ,Integer.parseInt(values[5]),Integer.parseInt(values[6]));
     }
 
-    private static long getFirstFreeId() {
+    private static int getFirstFreeId() {
         if (DataTransitSingleton.getInstance().getEditId() != -1)
             return DataTransitSingleton.getInstance().getEditId();
-        long index = 0;
+        int index = 0;
         for (Character c : ListsSingleton.getInstance().getCharacters()) {
             if (index != c.getId()) {
                 return index;

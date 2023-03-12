@@ -56,7 +56,7 @@ public class PresetCreationController implements Initializable {
     }
     @FXML
     protected void onCreateButtonClick() throws IOException {
-        List<Long> characterIds = inPreset.getItems().stream().map(Character::getId).toList();
+        List<Integer> characterIds = inPreset.getItems().stream().map(Character::getId).toList();
         PresetService.createPreset(name.getText(),characterIds);
         back();
     }

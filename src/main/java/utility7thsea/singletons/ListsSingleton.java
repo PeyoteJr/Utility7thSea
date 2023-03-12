@@ -4,6 +4,7 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import utility7thsea.model.Character;
 import utility7thsea.model.Preset;
+import utility7thsea.model.SequenceMember;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -12,6 +13,7 @@ public class ListsSingleton {
     private  ObservableList<Character> characters;
     private  ObservableList<Preset> presets;
     private ObservableList<Character> charactersInSession;
+    private ObservableList<SequenceMember> sequenceMembers;
     private ArrayList<String> abilities;
     private ArrayList<String> traits;
     private ArrayList<String> duel_styles;
@@ -32,7 +34,7 @@ public class ListsSingleton {
         return instance;
     }
 
-    public void removeCharacterById(long id){
+    public void removeCharacterById(int id){
         for (Character c:this.getCharacters()) {
             if(c.getId() == id){
                 this.characters.remove(c);
@@ -40,7 +42,7 @@ public class ListsSingleton {
             }
         }
     }
-    public void removePresetById(long id){
+    public void removePresetById(int id){
         for (Preset p:this.getPresets()) {
             if(p.getId() == id){
                 this.presets.remove(p);
@@ -87,5 +89,13 @@ public class ListsSingleton {
 
     public void setCharactersInSession(ObservableList<Character> charactersInSession) {
         this.charactersInSession = charactersInSession;
+    }
+
+    public ObservableList<SequenceMember> getSequenceMembers() {
+        return sequenceMembers;
+    }
+
+    public void setSequenceMembers(ObservableList<SequenceMember> sequenceMembers) {
+        this.sequenceMembers = sequenceMembers;
     }
 }

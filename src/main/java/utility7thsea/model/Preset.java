@@ -5,12 +5,12 @@ import utility7thsea.singletons.ListsSingleton;
 import java.util.List;
 
 public class Preset {
-    private long id;
+    private int id;
     private String name;
-    private List<Long> characterIds;
+    private List<Integer> characterIds;
     private List<String> characterNames;
 
-    public Preset(long id, String name, List<Long> characterIds) {
+    public Preset(int id, String name, List<Integer> characterIds) {
         this.id = id;
         this.name = name;
         this.characterIds = characterIds;
@@ -18,11 +18,11 @@ public class Preset {
                 .filter(character -> characterIds.contains(character.getId())).map(Character::getName).toList();
     }
 
-    public long getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(int id) {
         this.id = id;
     }
 
@@ -34,7 +34,7 @@ public class Preset {
         this.name = name;
     }
 
-    public List<Long> getCharacterIds() {
+    public List<Integer> getCharacterIds() {
         return characterIds;
     }
 
@@ -44,7 +44,7 @@ public class Preset {
 
     public String toCsv() {
         StringBuilder csvLine = new StringBuilder(id + ";" + name + ";");
-        for (Long id:characterIds) {
+        for (Integer id:characterIds) {
             csvLine.append(id);
             if(!(characterIds.lastIndexOf(id) == characterIds.size()-1)){
                 csvLine.append(",");

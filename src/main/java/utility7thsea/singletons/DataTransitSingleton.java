@@ -3,7 +3,7 @@ package utility7thsea.singletons;
 public class DataTransitSingleton {
 
     private static DataTransitSingleton instance = null;
-    private long editId = -1;
+    private int editId = -1;
     public DataTransitSingleton() {
     }
 
@@ -14,11 +14,11 @@ public class DataTransitSingleton {
         return instance;
     }
 
-    public long getEditId() {
+    public int getEditId() {
         return editId;
     }
 
-    public void setEditId(long editId) {
+    public void setEditId(int editId) {
         this.editId = editId;
     }
 }

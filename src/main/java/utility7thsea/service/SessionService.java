@@ -11,8 +11,10 @@ public class SessionService {
         ListsSingleton.getInstance().setCharactersInSession(characters);
     }
 
-
     public static void cleanSession() {
+        ListsSingleton.getInstance().getCharacters().forEach(character ->{
+            ListsSingleton.getInstance().getCharactersInSession().get((int) character.getId());
+        } );
         ListsSingleton.getInstance().getCharactersInSession().removeAll();
     }
 }
